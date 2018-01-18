@@ -6,7 +6,7 @@ Build a webapp that people can use to report technical issues.
 
 # Main page
 
-![main](assets/main2.png)
+![main](assets/corsac-ori-form.png)
 
 - the **frontend** should have
     - a heading with the title of the site
@@ -30,6 +30,7 @@ This endpoint should render an HTML displaying the report form(explained above)
 
 ### GET `/list`
 This endpoint should render an HTML displaying the full list of tickets(reported errors)
+![list example](assets/corsac-ori-list.png)
 
 ### POST `/report`
 This endpoint should 
