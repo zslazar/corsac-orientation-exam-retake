@@ -79,8 +79,5 @@ Example query:
 
 - this should return a json with every ticket where the reporter is "Egg"
 
-## 2) Endpoint TESTing
-- create 2 endpoint tests all together, you can choose on which endpoint/endpoints
-
-## 3) Question time
+## 2) Question time
   What is the difference between unit and integration testing?
