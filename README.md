@@ -29,7 +29,7 @@ All classes should import the following database:
 
 | java | c# | javascript |
 |-----|-----|-----|
-|[userssql](assets/users_cs.sql)|[userssql](assets/users_java.sql)|[users_js.sql](assets/users_js.sql)|
+|[java.sql](assets/java.sql)|[cs.sql](assets/cs.sql)|[js.sql](assets/js.sql)|
 
 CREATE A SCREENSHOT OF THE DATABASE YOU IMPORTED AND COMMIT IT TO THE REPO
 
