@@ -10,7 +10,7 @@ VALUES
 ('Bogi');
 GO
 
-INSERT INTO tickets (reporter, manufacturer, serialnumber, description, date)
+INSERT INTO tickets (reporter, manufacturer, serialnumber, description, reported_at)
 VALUES
 ('Egg', 'dell', 123456789, 'screen pixel error', '2018.01.16'),
 ('Szilvi', 'dell', 987654321, 'touchpad not working', '2018.01.17'),
