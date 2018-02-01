@@ -1,4 +1,4 @@
-# corsac-orientation-exam-retake
+# Corsac Orientation Retake Exam
 
 The programmer's most important equiment is his/her laptop and Murphy's law says "Anything that can go wrong will go wrong".
 We have to maintaion our computer, and sometimes external help needed to fix a proglem.
