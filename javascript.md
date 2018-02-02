@@ -32,7 +32,9 @@ The backend should
 This endpoint should render an HTML displaying the report form(explained above)
 
 ### GET `/list`
-This endpoint should render an HTML displaying the full list of tickets(reported errors)
+This endpoint should send the list of all tickets.
+
+The frontend should display the server response: (reported errors)
 ![list example](assets/corsac-ori-list.png)
 
 ### POST `/report`
