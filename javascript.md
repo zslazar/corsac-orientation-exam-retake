@@ -13,11 +13,11 @@ Build a webapp that people can use to report technical issues.
 
 The application consists of two screens.
 
-#### Home
+#### Home (index.html)
 
 ![home](assets/corsac-ori-form-js.png)
 
-It should have:
+It is built up from:
 
  -  a navigation bar, with a link to the tickets screen
  -  a heading with the title of the page
@@ -26,13 +26,13 @@ It should have:
      -  input field to set the manufacturer
      -  input field to set the serial number
      -  textarea to set the description
-     -  a REPORT button which should start an AJAX call to the `/report` endpoint with the form data
+     -  a REPORT button which should start an AJAX call to the `/issues` endpoint with the form data
 
-#### Tickets
+#### Tickets (tickets.html)
 
 ![list example](assets/corsac-ori-list-js.png)
 
-It should have:
+It is built up from:
 
  -  a navigation bar, with a link to the home screen
  -  a heading with the title of the page
@@ -40,65 +40,79 @@ It should have:
      -  In the last column you should render a delete button which will remove the ticket permanently (also from the database)
 
 ### Backend
-The backend should
-  - validate incoming data
-  - perform database calls
+
+The backend should handle all the issue related http requests and serve the static content for the application.
+
+#### Static content
+
+All the static files should be served from a dedicated folder (eg.: public, client, etc...)
 
 #### Endpoints
-- you should create these endpoints:
 
-##### GET `/`
-This endpoint should render an HTML displaying the report form(explained above)
+##### GET `/issues`
 
-##### GET `/list`
-This endpoint should send the list of all tickets.
+This endpoint should be responsible to list the issues from the database.
 
-##### POST `/report`
-This endpoint should 
-  - receive all the information of the error
-  - supplement the issue with date
-  - save the issue into database if the reporter's name is valid
+ -  if there is no query parameter, the backend must send all the issues.
+ -  if there is a manufacturer query parameter, the backend must filter only the issues with the given manufacturer
+ -  if there is a user_id query parameter, the backend must filter only the the issues which are reported by the given user.
 
-##### POST `/complete/:id`
-This endpoint should delete the specified ticket if the request's body contains `"secret" : "voala"`
-  
-##### GET `/list/query`
-This endpoint should return all the tickets which has matching either manufactorer or reporter from the database
+ Example query:
 
-Example query:
+`http://localhost:8080/issues?manufacturer=dell`
 
-`http://localhost:8080/list/query?manufacturer=dell`
-
-- this should return a json with every ticket where the manufacturer is "dell"
+ -  this should return a json with every ticket where the manufacturer is "dell"
 
 ```json
 {
-    "result": "ok",
     "tickets":
     [
         {
             "id" : "21",
             "reporter" : "Egg",
             "manufacturer" : "dell",
-            "serialnumber" : 123456789,
+            "serialNumber" : 123456789,
             "description" : "screen pixel error",
             "date" : "2018.01.10"
         },
         {
             "id" : "27",
-            "reporter" : "Szilvi",
+            "reporter" : "Brian",
             "manufacturer" : "dell",
-            "serial number" : 987654321,
-            "description" : "touchpad not working",
+            "serialNumber" : 987654321,
+            "description" : "touchpad is not working",
             "date" : "2018.01.17"
         }
     ]
 }
 ```
 
-`http://localhost:8080/list/query?reporter=Egg`
+`http://localhost:8080/issues?reporter=1`
 
-- this should return a json with every ticket where the reporter is "Egg"
+ -  this should return a json with every ticket where the reporter's id is 1
+
+
+`http://localhost:8080/issues`
+
+ -  this should return a json with all the tickets from the database
+
+##### POST `/issues`
+
+This endpoint should:
+
+ -  validate the sent data according to the following rules:
+    -  reporter is a number
+    -  manufacturer is set
+    -  serial number is set
+ -  supplement the issue with the current date
+ -  save the issue into database if the reporter's name is valid
+
+##### DELETE `/issues/:id`
+
+This endpoint should delete the specified ticket if the request's header contains the Authorization `HTTP header` with the value of 'voala'
 
 ## 2) Question time
-  What’s the difference between class & prototypal inheritance in javascript?
+
+### a, What's the difference between Array.prototype.forEach and Array.prototype.map?
+
+### b, Give us a an example usage of the map and forEach function.
