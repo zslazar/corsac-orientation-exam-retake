@@ -26,7 +26,7 @@ It is built up from:
      -  input field to set the manufacturer
      -  input field to set the serial number
      -  textarea to set the description
-     -  a REPORT button which should start an AJAX call to the `/issues` endpoint with the form data
+     -  a REPORT button which should start an AJAX call to the `/tickets` endpoint with the form data
 
 #### Tickets (tickets.html)
 
@@ -37,11 +37,11 @@ It is built up from:
  -  a navigation bar, with a link to the home screen
  -  a heading with the title of the page
  -  a table to display all the tickets from the database
-     -  In the last column you should render a delete button which will remove the ticket permanently (also from the database)
+    -  In the last column you should render a delete button which will remove the ticket permanently (also from the database)
 
 ### Backend
 
-The backend should handle all the issue related http requests and serve the static content for the application.
+The backend should handle all the ticket related http requests and serve the static content to the application.
 
 #### Static content
 
@@ -49,17 +49,45 @@ All the static files should be served from a dedicated folder (eg.: public, clie
 
 #### Endpoints
 
-##### GET `/issues`
+##### GET `/users`
 
-This endpoint should be responsible to list the issues from the database.
+This endpoint is used to list all the available users
 
- -  if there is no query parameter, the backend must send all the issues.
- -  if there is a manufacturer query parameter, the backend must filter only the issues with the given manufacturer
- -  if there is a user_id query parameter, the backend must filter only the the issues which are reported by the given user.
+Example query:
 
- Example query:
+[GET] `http://localhost:8080/users`
 
-`http://localhost:8080/issues?manufacturer=dell`
+ -  this should return a json with the users collected from the database
+
+```json
+{
+    "users":
+    [
+        {
+            "id" : "1",
+            "name" : "Egg"
+        },
+        {
+            "id" : "2",
+            "name" : "Tom"
+        },
+        ...
+    ]
+}
+```
+
+##### GET `/tickets`
+
+This endpoint should be responsible to list the tickets from the database.
+
+ -  if there is no query parameter, the backend must send all the tickets
+ -  if there is a manufacturer query parameter, the backend must filter only the tickets with the given manufacturer
+ -  if there is a reporter query parameter, the backend must filter only the the tickets which are reported by the given user
+ -  the manufacturer and reporter query parameters can be mixed
+
+Example query:
+
+[GET] `http://localhost:8080/tickets?manufacturer=dell`
 
  -  this should return a json with every ticket where the manufacturer is "dell"
 
@@ -87,16 +115,16 @@ This endpoint should be responsible to list the issues from the database.
 }
 ```
 
-`http://localhost:8080/issues?reporter=1`
+[GET] `http://localhost:8080/tickets?reporter=1`
 
  -  this should return a json with every ticket where the reporter's id is 1
 
 
-`http://localhost:8080/issues`
+[GET] `http://localhost:8080/tickets`
 
  -  this should return a json with all the tickets from the database
 
-##### POST `/issues`
+##### POST `/tickets`
 
 This endpoint should:
 
@@ -104,12 +132,43 @@ This endpoint should:
     -  reporter is a number
     -  manufacturer is set
     -  serial number is set
- -  supplement the issue with the current date
- -  save the issue into database if the reporter's name is valid
+ -  supplement the ticket with the current date
+ -  save the ticket into database
+ -  set the status code to 400 if the validation failed
+ -  set the status code to 500 if any database error has occured
 
-##### DELETE `/issues/:id`
+Example query:
 
-This endpoint should delete the specified ticket if the request's header contains the Authorization `HTTP header` with the value of 'voala'
+[POST] `http://localhost:8080/tickets`
+
+ -  this should return a json with the newly created ticket
+
+```json
+{
+    "id" : "22",
+    "reporter" : "Brian",
+    "manufacturer" : "dell",
+    "serialNumber" : 123481639,
+    "description" : "keyboard is not working",
+    "date" : "2018.01.29"
+}
+```
+
+##### DELETE `/tickets/:id`
+
+It deletes the specified ticket if the request's header contains the Authorization `HTTP header` with the value of 'voala'. The endpoint should:
+
+ -  validate the header
+    -  if authorization header is missing it should return an empty response with a 401 status code
+ -  delete the ticket from the database
+ -  return an empty response with a 204 status code
+ -  return an empty response with a 500 status code if any error has occured
+
+Example query:
+
+[DELETE] `http://localhost:8080/tickets/12`
+
+ -  this should return an empty response, with a 204 status code
 
 ## 2) Question time
 
