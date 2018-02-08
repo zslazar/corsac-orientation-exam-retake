@@ -37,7 +37,7 @@ It is built up from:
  -  a navigation bar, with a link to the home screen
  -  a heading with the title of the page
  -  a table to display all the tickets from the database
-    -  In the last column you should render a delete button which will remove the ticket permanently (also from the database)
+    -  in the last column you should render a delete button which will remove the ticket permanently (also from the database)
 
 ### Backend
 
@@ -174,4 +174,4 @@ Example query:
 
 ### a, What's the difference between Array.prototype.forEach and Array.prototype.map?
 
-### b, Give us a an example usage of the map and forEach function.
+### b, Write an example usage of the map and forEach function.
