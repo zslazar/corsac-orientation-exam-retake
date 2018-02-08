@@ -39,7 +39,7 @@ VALUES
   ('Lauren');
 
 INSERT INTO 
-  tickets (reporter, manufacturer, serialnumber, description, reported_at)
+  tickets (reporter, manufacturer, serial_number, description, reported_at)
 VALUES
   (1, 'dell', 123456789, 'screen pixel error', '2018-01-16'),
   (4, 'dell', 987654321, 'touchpad is not working', '2018-01-17'),
