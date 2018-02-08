@@ -1,8 +1,10 @@
-CREATE DATABASE IF NOT EXISTS `orientation_retake` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+DROP DATABASE IF EXISTS `orientation_retake`;
+CREATE DATABASE `orientation_retake` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
 
 USE `orientation_retake`;
 
-CREATE TABLE IF NOT EXISTS `users` (
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
@@ -10,6 +12,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `name_UNIQUE` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+DROP TABLE IF EXISTS `tickets`;
 CREATE TABLE `tickets` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `reporter` int(10) unsigned NOT NULL,
