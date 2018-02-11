@@ -101,7 +101,7 @@ Example query:
             "manufacturer" : "dell",
             "serialNumber" : 123456789,
             "description" : "screen pixel error",
-            "date" : "2018.01.10"
+            "date" : "2018-01-10T23:00:00.000Z"
         },
         {
             "id" : 27,
@@ -109,7 +109,7 @@ Example query:
             "manufacturer" : "dell",
             "serialNumber" : 987654321,
             "description" : "touchpad is not working",
-            "date" : "2018.01.17"
+            "date" : "2018-01-17T23:00:00.000Z"
         }
     ]
 }
@@ -150,7 +150,7 @@ Example query:
     "manufacturer" : "dell",
     "serialNumber" : 123481639,
     "description" : "keyboard is not working",
-    "date" : "2018.01.29"
+    "date" : "2018-01-18T23:00:00.000Z"
 }
 ```
 
