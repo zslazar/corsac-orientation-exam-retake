@@ -64,11 +64,11 @@ Example query:
     "users":
     [
         {
-            "id" : "1",
+            "id" : 1,
             "name" : "Egg"
         },
         {
-            "id" : "2",
+            "id" : 2,
             "name" : "Tom"
         },
         ...
@@ -96,7 +96,7 @@ Example query:
     "tickets":
     [
         {
-            "id" : "21",
+            "id" : 21,
             "reporter" : "Egg",
             "manufacturer" : "dell",
             "serialNumber" : 123456789,
@@ -104,7 +104,7 @@ Example query:
             "date" : "2018.01.10"
         },
         {
-            "id" : "27",
+            "id" : 27,
             "reporter" : "Brian",
             "manufacturer" : "dell",
             "serialNumber" : 987654321,
@@ -145,7 +145,7 @@ Example query:
 
 ```json
 {
-    "id" : "22",
+    "id" : 22,
     "reporter" : "Brian",
     "manufacturer" : "dell",
     "serialNumber" : 123481639,
