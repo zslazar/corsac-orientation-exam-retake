@@ -99,7 +99,7 @@ Example query:
             "id" : 21,
             "reporter" : "Egg",
             "manufacturer" : "dell",
-            "serialNumber" : 123456789,
+            "serial_number" : 123456789,
             "description" : "screen pixel error",
             "date" : "2018-01-10T23:00:00.000Z"
         },
@@ -107,7 +107,7 @@ Example query:
             "id" : 27,
             "reporter" : "Brian",
             "manufacturer" : "dell",
-            "serialNumber" : 987654321,
+            "serial_number" : 987654321,
             "description" : "touchpad is not working",
             "date" : "2018-01-17T23:00:00.000Z"
         }
@@ -148,7 +148,7 @@ This should be the request's body:
 {
     "reporter": 1,
     "manufacturer": "dell",
-    "serialNumber": 123481639,
+    "serial_number": 123481639,
     "description": "keyboard is not working"
 }
 ```
@@ -160,7 +160,7 @@ This should be the request's body:
     "id" : 22,
     "reporter": 1,
     "manufacturer": "dell",
-    "serialNumber": 123481639,
+    "serial_number": 123481639,
     "description": "keyboard is not working",
     "date" : "2018-01-18T23:00:00.000Z"
 }
