@@ -101,7 +101,7 @@ Example query:
             "manufacturer" : "dell",
             "serial_number" : 123456789,
             "description" : "screen pixel error",
-            "date" : "2018-01-10T23:00:00.000Z"
+            "reported_at" : "2018-01-10T23:00:00.000Z"
         },
         {
             "id" : 27,
@@ -109,7 +109,7 @@ Example query:
             "manufacturer" : "dell",
             "serial_number" : 987654321,
             "description" : "touchpad is not working",
-            "date" : "2018-01-17T23:00:00.000Z"
+            "reported_at" : "2018-01-17T23:00:00.000Z"
         }
     ]
 }
@@ -162,7 +162,7 @@ This should be the request's body:
     "manufacturer": "dell",
     "serial_number": 123481639,
     "description": "keyboard is not working",
-    "date" : "2018-01-18T23:00:00.000Z"
+    "reported_at" : "2018-01-18T23:00:00.000Z"
 }
 ```
 
