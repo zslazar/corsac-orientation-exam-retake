@@ -157,7 +157,7 @@ This should be the request's body:
 ```json
 {
     "id" : 22,
-    "reporter": "Brian",
+    "reporter": 1,
     "manufacturer": "dell",
     "serialNumber": 123481639,
     "description": "keyboard is not working",
