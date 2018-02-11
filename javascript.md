@@ -37,7 +37,7 @@ It is built up from:
  -  a navigation bar, with a link to the home screen
  -  a heading with the title of the page
  -  a table to display all the tickets from the database
-    -  in the last column you should render a delete button which will remove the ticket permanently (also from the database)
+     -  in the last column you should render a delete button which will remove the ticket permanently (also from the database)
 
 ### Backend
 
@@ -129,9 +129,9 @@ Example query:
 This endpoint should:
 
  -  validate the sent data according to the following rules:
-    -  reporter is a number
-    -  manufacturer is set
-    -  serial number is set
+     -  reporter is a number
+     -  manufacturer is set
+     -  serial number is set
  -  supplement the ticket with the current date
  -  save the ticket into database
  -  set the status code to 400 if the validation failed
@@ -159,7 +159,7 @@ Example query:
 It deletes the specified ticket if the request's header contains the Authorization `HTTP header` with the value of 'voala'. The endpoint should:
 
  -  validate the header
-    -  if authorization header is missing it should return an empty response with a 401 status code
+     -  if authorization header is missing it should return an empty response with a 401 status code
  -  delete the ticket from the database
  -  return an empty response with a 204 status code
  -  return an empty response with a 500 status code if any error has occured
