@@ -84,6 +84,7 @@ This endpoint should be responsible to list the tickets from the database.
  -  if there is a manufacturer query parameter, the backend must filter only the tickets with the given manufacturer
  -  if there is a reporter query parameter, the backend must filter only the the tickets which are reported by the given user
  -  the manufacturer and reporter query parameters can be mixed
+ -  it's okay to return the reported id instead of the reporter name (of course it will take some points from you)
 
 Example query:
 
@@ -154,6 +155,7 @@ This should be the request's body:
 ```
 
  -  this should return a json with the newly created ticket
+ -  if you feel the power you can return the reporter name instead of the id
 
 ```json
 {
