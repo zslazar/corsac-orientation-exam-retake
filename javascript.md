@@ -141,15 +141,26 @@ Example query:
 
 [POST] `http://localhost:8080/tickets`
 
+This should be the request's body:
+
+```json
+{
+    "reporter": 1,
+    "manufacturer": "dell",
+    "serialNumber": 123481639,
+    "description": "keyboard is not working"
+}
+```
+
  -  this should return a json with the newly created ticket
 
 ```json
 {
     "id" : 22,
-    "reporter" : "Brian",
-    "manufacturer" : "dell",
-    "serialNumber" : 123481639,
-    "description" : "keyboard is not working",
+    "reporter": "Brian",
+    "manufacturer": "dell",
+    "serialNumber": 123481639,
+    "description": "keyboard is not working",
     "date" : "2018-01-18T23:00:00.000Z"
 }
 ```
