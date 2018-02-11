@@ -132,6 +132,7 @@ This endpoint should:
      -  reporter is a number
      -  manufacturer is set
      -  serial number is set
+     -  description is set
  -  supplement the ticket with the current date
  -  save the ticket into database
  -  set the status code to 400 if the validation failed
