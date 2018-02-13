@@ -16,6 +16,17 @@
             <td><b>Description</b></td>
             <td><b>Date</b></td>
         </tr>
-        </table>
+                @foreach (var item in Model.Tickets)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Reporter</td>
+                        <td>@item.Manufacturer</td>
+                        <td>@item.SerialNumber</td>
+                        <td>@item.Description</td>
+                        <td>@item.ReportedAt</td>
+                    </tr>
+                }
+</table>
 </body>
 </html>

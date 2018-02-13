@@ -47,5 +47,18 @@ namespace ErrorReporter.Repositories
             }
             return FilteredList;
         }
+
+        public void ReportError(Ticket ticket)
+        {
+            errorContext.Tickets.Add(ticket);
+            errorContext.SaveChanges();            
+        }
+
+        public void DeleteTicket(long id)
+        {
+            Ticket data = errorContext.Tickets.FirstOrDefault(d => d.Id == id);
+            errorContext.Tickets.Remove(data);
+            errorContext.SaveChanges();            
+        }
     }
 }

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using ErrorReporter.Models;
 using ErrorReporter.Repositories;
 using ErrorReporter.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,15 +12,19 @@ namespace ErrorReporter.Controllers
     {
         private ErrorRepository errorRepository;
 
+
         public HomeController(ErrorRepository errorRepository)
         {
             this.errorRepository = errorRepository;
         }
 
-        [HttpGet("")]
+        [HttpGet("/")]
         public IActionResult Index()
         {
-            return View();
+            ErrorVM errorVM = new ErrorVM();
+            errorVM.Users = errorRepository.GetUsers();
+            errorVM.Tickets = errorRepository.GetTickets();
+            return View(errorVM);
         }
 
         
@@ -38,16 +39,17 @@ namespace ErrorReporter.Controllers
         }
 
         [HttpPost("report")]
-        public IActionResult Report()
+        public IActionResult Report(Ticket ticket)
         {
-            return Ok();
+            errorRepository.ReportError(ticket);
+            return Redirect("list");
         }
 
         [HttpPost("complete/{id}")]
         public IActionResult Complete([FromBody] long id)
         {
-            //errorRepository.DeleteItem();
-            return RedirectToAction("Index");
+            errorRepository.DeleteTicket(id);
+            return Redirect("list");
         }
 
         [HttpGet("list/query")]

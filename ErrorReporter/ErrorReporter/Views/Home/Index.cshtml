@@ -12,11 +12,11 @@
         <br />
         <select name="Name">
             <option value="">- Choose someone -</option>
-            @{foreach (var name in Model.Users)
+            @foreach (var name in Model.Users)
                 {
                     <option value="@name.Name">@name.Name</option>
                 }
-            }
+            
         </select>
         <br />
         Manufacturer:
