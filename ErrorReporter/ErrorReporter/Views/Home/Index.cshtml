@@ -7,5 +7,27 @@
     <meta charset="utf-8" />
 </head>
 <body>
+    <form action="/" method="get">
+        Name:<br />
+        <select name="Name">
+            <option value="">- Choose someone -</option>
+            @{foreach (var name in Model.Users)
+                {
+                    <option value="@name.Name">@name.Name</option>
+                }
+            }
+        </select>
+        <br />
+        Manufacturer:<br />
+        <input type="text" name="Manufacturer" value="">
+        <br />
+        Serial Number:<br />
+        <input type="text" name="Serial Number" value="">
+        <br />
+        Description:<br />
+        <input type="text" name="Manufacturer" value="">
+        <br />
+        <input type="submit" value="Report">
+    </form>
 </body>
 </html>

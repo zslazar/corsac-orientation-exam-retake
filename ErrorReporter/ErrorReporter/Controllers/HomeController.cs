@@ -43,10 +43,18 @@ namespace ErrorReporter.Controllers
             return Ok();
         }
 
-        [HttpGet("list/query")]
-        public IActionResult ListQuery()
+        [HttpPost("complete/{id}")]
+        public IActionResult Complete([FromBody] long id)
         {
-            return Ok();
+            //errorRepository.DeleteItem();
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet("list/query")]
+        public IActionResult ListQuery(string manufacturer)
+        {
+            return Json(new { result = "ok", tickets = errorRepository.GetFilteredTicketsByManufacturer() });
+                
         }
 
     }

@@ -25,5 +25,16 @@ namespace ErrorReporter.Repositories
         {
             return errorContext.Tickets.ToList();
         }
+
+        public List<Ticket> GetFilteredTicketsByManufacturer(string manufacturer)
+        {            
+            List<Ticket> FilteredList = new List<Ticket>();
+
+            if (manufacturer.Equals("dell"))
+            {
+                FilteredList = GetTickets().Where(f => f.Manufacturer == manufacturer).ToList();                    
+            }
+            return FilteredList;
+        }
     }
 }
