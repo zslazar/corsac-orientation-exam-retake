@@ -12,7 +12,6 @@ namespace ErrorReporter.Controllers
     {
         private ErrorRepository errorRepository;
 
-
         public HomeController(ErrorRepository errorRepository)
         {
             this.errorRepository = errorRepository;
@@ -26,7 +25,6 @@ namespace ErrorReporter.Controllers
             errorVM.Tickets = errorRepository.GetTickets();
             return View(errorVM);
         }
-
         
         [HttpGet("list")]
         public IActionResult List()
@@ -58,6 +56,5 @@ namespace ErrorReporter.Controllers
             return Json(new { result = "ok", tickets = errorRepository.GetFilteredTicketsByManufacturer(manufacturer) });
             //return Json(new { result = "ok", tickets = errorRepository.GetFilteredTicketsByManufacturer(reporter) });
         }
-
     }
 }
