@@ -51,10 +51,10 @@ namespace ErrorReporter.Controllers
         }
 
         [HttpGet("list/query")]
-        public IActionResult ListQuery(string manufacturer)
+        public IActionResult ListQuery(string manufacturer, string reporter)
         {
-            return Json(new { result = "ok", tickets = errorRepository.GetFilteredTicketsByManufacturer() });
-                
+            return Json(new { result = "ok", tickets = errorRepository.GetFilteredTicketsByManufacturer(manufacturer) });
+            //return Json(new { result = "ok", tickets = errorRepository.GetFilteredTicketsByManufacturer(reporter) });
         }
 
     }

@@ -30,9 +30,20 @@ namespace ErrorReporter.Repositories
         {            
             List<Ticket> FilteredList = new List<Ticket>();
 
-            if (manufacturer.Equals("dell"))
+            if (manufacturer.Equals(manufacturer))
             {
                 FilteredList = GetTickets().Where(f => f.Manufacturer == manufacturer).ToList();                    
+            }                      
+            return FilteredList;
+        }
+
+        public List<Ticket> GetFilteredTicketsByReporter(string reporter)
+        {
+            List<Ticket> FilteredList = new List<Ticket>();
+
+            if (reporter.Equals(reporter))
+            {
+                FilteredList = GetTickets().Where(f => f.Reporter == reporter).ToList();
             }
             return FilteredList;
         }

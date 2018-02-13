@@ -8,7 +8,8 @@
 </head>
 <body>
     <form action="/" method="get">
-        Name:<br />
+        Name:
+        <br />
         <select name="Name">
             <option value="">- Choose someone -</option>
             @{foreach (var name in Model.Users)
@@ -18,13 +19,16 @@
             }
         </select>
         <br />
-        Manufacturer:<br />
+        Manufacturer:
+        <br />
         <input type="text" name="Manufacturer" value="">
         <br />
-        Serial Number:<br />
+        Serial Number:
+        <br />
         <input type="text" name="Serial Number" value="">
         <br />
-        Description:<br />
+        Description:
+        <br />
         <input type="text" name="Manufacturer" value="">
         <br />
         <input type="submit" value="Report">
