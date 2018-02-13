@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
 </head>
 <body>
-    <form action="/" method="get">
+    <form action="/report" method="post">
         Name:
         <br />
         <select name="Name">
@@ -15,8 +15,7 @@
             @foreach (var name in Model.Users)
                 {
                     <option value="@name.Name">@name.Name</option>
-                }
-            
+                }            
         </select>
         <br />
         Manufacturer:

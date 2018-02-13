@@ -1,0 +1,20 @@
+Unit Tests are conducted by developers and test the unit of code( aka module, component) he or she developed. 
+It is a testing method by which individual units of source code are tested to determine if they are ready to use. 
+It helps to reduce the cost of bug fixes since the bugs are identified during the early phases of development life cycle.
+
+Unit test
+The idea behind Unit Testing is to test each part of the program and show that the individual parts are correct.
+It can be performed at any time
+It is usually executed by developer
+Finding errors are easy
+
+Integration testing is executed by testers and tests integration between software modules. 
+It is a software testing technique where individual units of a program are combined and tested as a group. 
+Test stubs and test drivers are used to assist in Integration Testing. Integration test is performed in two way, they are bottom-up method and the top-down method.
+
+Integration test
+The idea behind Integration Testing is to combine modules in the application and test as a group to see that they are working fine
+It usually carried out after Unit Testing and before System Testing
+Integrating testing may detect errors when modules are integrated to build the overall system
+It is usually executed by test team
+Finding errors are difficult
