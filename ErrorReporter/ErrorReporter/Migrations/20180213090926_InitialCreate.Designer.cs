@@ -11,7 +11,7 @@ using System;
 namespace ErrorReporter.Migrations
 {
     [DbContext(typeof(ErrorContext))]
-    [Migration("20180213090016_InitialCreate")]
+    [Migration("20180213090926_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,19 +26,31 @@ namespace ErrorReporter.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Date");
-
                     b.Property<string>("Description");
 
                     b.Property<string>("Manufacturer");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("ReportedAt");
+
+                    b.Property<string>("Reporter");
 
                     b.Property<double>("SerialNumber");
 
                     b.HasKey("Id");
 
                     b.ToTable("Tickets");
+                });
+
+            modelBuilder.Entity("ErrorReporter.Models.User", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

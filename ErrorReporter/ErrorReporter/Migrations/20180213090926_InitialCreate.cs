@@ -15,15 +15,28 @@ namespace ErrorReporter.Migrations
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Date = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Manufacturer = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true),
+                    ReportedAt = table.Column<string>(nullable: true),
+                    Reporter = table.Column<string>(nullable: true),
                     SerialNumber = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Tickets", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
         }
 
@@ -31,6 +44,9 @@ namespace ErrorReporter.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Tickets");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

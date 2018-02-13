@@ -8,10 +8,10 @@ namespace ErrorReporter.Models
     public class Ticket
     {
         public long Id { get; set; }
-        public string Name { get; set; }
+        public string Reporter { get; set; }
         public string Manufacturer { get; set; }
         public double SerialNumber { get; set; }
         public string Description { get; set; }
-        public string Date { get; set; } = DateTime.Now.ToString("dd/MM/yyyy");
+        public string ReportedAt { get; set; } = DateTime.Now.ToString("dd/MM/yyyy");
     }
 }
